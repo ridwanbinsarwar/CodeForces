@@ -1,18 +1,6 @@
-/*********increase vector size**********/
-int maxIndex ;
-maxIndex = getMax(i, j);
-if(v.size() <= maxIndex) {
-while(v.size() <= maxIndex) {
-v.push_back(vector<int>());
-v[v.size() - 1].pb(0);
-}
-}
-/*********increase vector size**********/
 
 /**** Use of "sort()" for sorting on basis
     // of 2nd column */
-
-
 bool sortcol( const vector<int>& v1,
               const vector<int>& v2 ) {
     return v1[1] < v2[1];
