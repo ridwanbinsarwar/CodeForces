@@ -114,3 +114,50 @@ int main() {
     cout<<TRT(0,n-1,1);
     return 0;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+int main()
+{
+    int t;
+    scanf("%d" , &t);
+    int ans = 0;
+    while(t--) {
+        ans++;
+        int k , n , m;
+        for(int i = 0 ; i <= 1100 ; i++) {
+            s[i].clear();
+        }
+        memset(map , 0 , sizeof(map));
+        scanf("%d%d%d" , &k , &n , &m);
+        for(int i = 0 ; i < k ; i++)
+            scanf("%d" , &a[i]);
+        for(int i = 0 ; i < m ; i++) {
+            int x , y;
+            scanf("%d%d" , &x , &y);
+            s[x].push_back(y);
+        }
+        for(int i = 0 ; i < k ; i++) {
+            memset(vis , 0 , sizeof(vis));
+            map[a[i]]++;
+            dfs(a[i]);
+        }
+        int cnt = 0;
+        for(int i = 1 ; i <= n ; i++) {
+            //cout << map[i] << endl;
+            if(map[i] == k)
+                cnt++;
+        }
+        printf("Case %d: %d\n" , ans , cnt);
+    }
+    return 0;
+}
