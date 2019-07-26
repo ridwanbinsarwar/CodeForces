@@ -83,3 +83,34 @@ public static void main(String[] args)throws IOException
                     }
             }
 }
+
+
+
+#include <bits/stdc++.h>
+using namespace std;
+int val[2000];
+/*DP matrix is used to store
+results calculated(Memoization)*/
+int dp[2000][2000];
+int n;
+int TRT(int start,int end,int yr)
+{
+    /*Recursion + memoization*/
+    if(start>end)
+        return 0;
+    if(dp[start][end]!=-1)
+        return dp[start][end];
+    else
+        return dp[start][end]=max(TRT(start+1,end,yr+1)+val[start]*yr,
+                                  TRT(start,end-1,yr+1)+val[end]*yr);
+}
+int main() {
+    std::ios::sync_with_stdio(false);
+
+    cin>>n;
+    for(int i=0;i<n;++i)
+        cin>>val[i];
+    memset(dp,-1,sizeof(dp));
+    cout<<TRT(0,n-1,1);
+    return 0;
+}
